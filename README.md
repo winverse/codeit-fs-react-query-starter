@@ -21,6 +21,8 @@
 ## 시작하기
 
 ```bash
+git clone https://github.com/winverse/codeit-fs-react-query-starter.git
+cd codeit-fs-react-query-starter
 pnpm install
 pnpm dev
 ```

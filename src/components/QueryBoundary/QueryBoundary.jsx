@@ -5,7 +5,7 @@ import Loading from '@/components/Loading';
 
 /*
 TODO(2-17): QueryBoundary를 완성합니다.
-- ErrorBoundary 클래스 컴포넌트 추가
+- react-error-boundary의 ErrorBoundary 연결
 - DefaultErrorFallback 추가
 - QueryErrorResetBoundary로 reset 연결
 - pendingFallback, errorTitle, errorDescription 처리

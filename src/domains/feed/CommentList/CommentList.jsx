@@ -7,7 +7,7 @@ import * as styles from './CommentList.css.js';
 /*
 TODO(2-19): 댓글 목록 쿼리와 페이지네이션을 구현합니다.
 - 댓글 목록 조회 쿼리
-- 페이지 전환 및 prefetch 처리
+- startTransition을 사용한 페이지 전환 및 prefetch 처리
 
 TODO(3-01): 댓글 추가 뮤테이션을 연결합니다.
 - addComment mutationFn과 mutate 호출

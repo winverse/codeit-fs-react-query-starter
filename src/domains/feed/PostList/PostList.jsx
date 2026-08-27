@@ -15,6 +15,7 @@ function PostList({ variant = FEED_VARIANT.HOME_FEED }) {
     data: postsData,
     fetchNextPage,
     hasNextPage,
+    isFetching,
     isFetchingNextPage,
   } = usePostListQuery({ variant, currentUsername });
 
@@ -29,9 +30,9 @@ function PostList({ variant = FEED_VARIANT.HOME_FEED }) {
       )}
       <Button
         onClick={() => fetchNextPage()}
-        disabled={!hasNextPage || isFetchingNextPage}
+        disabled={!hasNextPage || isFetching}
       >
-        더 불러오기
+        {isFetchingNextPage ? '더 불러오는 중...' : '더 불러오기'}
       </Button>
     </div>
   );

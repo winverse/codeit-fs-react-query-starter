@@ -20,13 +20,6 @@
 
 ## 시작하기
 
-이 프로젝트는 Node.js 24.20.0 이상 25 미만과 pnpm 11.24.0을 기준으로 검증했습니다. 저장소를 내려받기 전에 현재 버전을 확인합니다.
-
-```bash
-node -v
-pnpm -v
-```
-
 ```bash
 git clone https://github.com/winverse/codeit-fs-react-query-starter.git
 cd codeit-fs-react-query-starter

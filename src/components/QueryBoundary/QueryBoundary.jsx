@@ -1,14 +1,11 @@
 'use client';
 
 import { Suspense } from 'react';
-import Loading from '@/components/Loading';
+import { Loading } from '@/components/Loading';
 
 /*
-TODO(2-17): QueryBoundary를 완성합니다.
-- react-error-boundary의 ErrorBoundary 연결
-- DefaultErrorFallback 추가
-- QueryErrorResetBoundary로 reset 연결
-- pendingFallback, errorTitle, errorDescription 처리
+TODO(2-17): 대기 상태뿐 아니라 오류 표시와 다시 시도까지 처리하는
+공통 조회 경계로 완성합니다.
 */
 
 function QueryBoundary({ children, pendingFallback }) {

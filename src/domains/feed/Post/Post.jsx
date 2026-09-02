@@ -5,14 +5,12 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
-import Card from '@/components/Card';
-import QueryBoundary from '@/components/QueryBoundary';
-import Loading from '@/components/Loading';
-import ContentInfo from '@/domains/feed/ContentInfo';
-import Button from '@/components/Button';
-import CommentList from '@/domains/feed/CommentList';
-import { USER_ACTION } from '@/lib/constants';
+import { Card } from '@/components/Card';
+import { QueryBoundary } from '@/components/QueryBoundary';
+import { Loading } from '@/components/Loading';
+import { ContentInfo } from '@/domains/feed/ContentInfo';
+import { Button } from '@/components/Button';
+import { CommentList } from '@/domains/feed/CommentList';
 import { queryKeys } from '@/lib/queryKeys';
 import {
   getCommentCountByPostId,
@@ -22,7 +20,6 @@ import {
 } from '@/lib/api';
 import { useLoginContext } from '@/contexts/LoginContext';
 import * as styles from './Post.css.js';
-import { useLikeMutation } from '../hooks/useLikeMutation';
 
 const yellowHeartImage = '/assets/yellow-heart.png';
 const greyHeartImage = '/assets/grey-heart.png';
@@ -71,19 +68,15 @@ function PostContent({
   const router = useRouter();
   const [showCommentList, setShowCommentList] = useState(false);
 
-  const { data: commentCount, refetch: refetchCommentCount } = useSuspenseQuery(
-    {
-      queryKey: queryKeys.posts.commentCount(post.id),
-      queryFn: () => getCommentCountByPostId(post.id),
-    },
-  );
+  const { data: commentCount } = useSuspenseQuery({
+    queryKey: queryKeys.posts.commentCount(post.id),
+    queryFn: () => getCommentCountByPostId(post.id),
+  });
 
   const { data: likeCount } = useSuspenseQuery({
     queryKey: queryKeys.posts.likeCount(post.id),
     queryFn: () => getLikeCountByPostId(post.id),
   });
-
-  const likeMutation = useLikeMutation();
 
   const handleCommentButtonClick = () => {
     if (!currentUsername) {
@@ -93,20 +86,6 @@ function PostContent({
     setShowCommentList(
       (previousIsCommentListOpen) => !previousIsCommentListOpen,
     );
-    refetchCommentCount();
-  };
-
-  const handleLikeButtonClick = (userAction) => {
-    if (!currentUsername) {
-      toast('로그인이 필요합니다.');
-      router.push('/not-logged-in');
-      return;
-    }
-    likeMutation.mutate({
-      postId: post.id,
-      username: currentUsername,
-      userAction,
-    });
   };
 
   return (
@@ -117,13 +96,7 @@ function PostContent({
         <div className={styles.engagement}>
           <Button
             className={clsx(styles.engagementButton, styles.likeButton)}
-            onClick={() => {
-              handleLikeButtonClick(
-                isPostLikedByCurrentUser
-                  ? USER_ACTION.UNLIKE_POST
-                  : USER_ACTION.LIKE_POST,
-              );
-            }}
+            disabled={true}
           >
             <Image
               className={styles.like}
@@ -148,8 +121,6 @@ function PostContent({
             pendingFallback={
               <Loading description="댓글을 불러오는 중입니다..." />
             }
-            errorTitle="댓글을 불러오지 못했습니다."
-            errorDescription="잠시 후 다시 시도해 주세요."
           >
             <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
           </QueryBoundary>

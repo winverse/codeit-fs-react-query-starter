@@ -1,1 +1,1 @@
-export { default } from './CommentForm';
+export { default as CommentForm } from './CommentForm';

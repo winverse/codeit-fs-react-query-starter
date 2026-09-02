@@ -1,1 +1,1 @@
-export { default } from './Warn';
+export { default as Warn } from './Warn';

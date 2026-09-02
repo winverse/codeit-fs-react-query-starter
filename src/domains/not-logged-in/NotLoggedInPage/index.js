@@ -1,1 +1,1 @@
-export { default } from './NotLoggedInPage';
+export { default as NotLoggedInPage } from './NotLoggedInPage';

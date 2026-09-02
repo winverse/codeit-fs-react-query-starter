@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import ProfilePhoto from '@/components/ProfilePhoto';
-import Button from '@/components/Button';
+import { ProfilePhoto } from '@/components/ProfilePhoto';
+import { Button } from '@/components/Button';
 import * as styles from './TextInputForm.css.js';
 
 function TextInputForm({

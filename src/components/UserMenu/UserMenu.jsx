@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import ProfilePhoto from '@/components/ProfilePhoto';
+import { ProfilePhoto } from '@/components/ProfilePhoto';
 import useClickOutside from '@/hooks/useClickOutside';
 import { USERNAMES } from '@/lib/constants';
 import { useLoginContext } from '@/contexts/LoginContext';
@@ -13,7 +13,7 @@ const anonymousUserIcon = '/assets/person.png';
 /*
 TODO(2-11): UserMenu를 완성합니다.
 - 사용자 정보 쿼리 연결
-- 캐시 무효화와 로그아웃 처리
+- 로그인 여부에 맞는 사용자 정보 표시
 */
 
 function UserMenu() {

@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Container from '@/components/Container';
-import UserMenu from '@/components/UserMenu';
+import { Container } from '@/components/Container';
+import { UserMenu } from '@/components/UserMenu';
 import * as styles from './Navigation.css.js';
 
 function Navigation() {

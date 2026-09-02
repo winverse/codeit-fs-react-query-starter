@@ -1,19 +1,18 @@
 'use client';
 
-import Comment from '@/domains/feed/Comment';
-import CommentForm from '@/domains/feed/CommentForm';
+import { Comment } from '@/domains/feed/Comment';
+import { CommentForm } from '@/domains/feed/CommentForm';
 import * as styles from './CommentList.css.js';
 
 /*
 TODO(2-19): 댓글 목록 쿼리와 페이지네이션을 구현합니다.
-- 댓글 목록 조회 쿼리
-- startTransition을 사용한 페이지 전환 및 prefetch 처리
+- 댓글 목록을 페이지별로 조회하고 다음 페이지 이동 준비
 
 TODO(3-01): 댓글 추가 뮤테이션을 연결합니다.
-- addComment mutationFn과 mutate 호출
+- 댓글 입력을 서버 변경 요청과 연결
 
-TODO(3-03): 댓글 추가 성공 후 쿼리를 무효화합니다.
-- comments / commentCount 쿼리 무효화
+TODO(3-03): 댓글 추가 성공 후 화면을 동기화합니다.
+- 댓글 목록과 댓글 수를 서버 데이터에 맞게 갱신
 */
 
 function CommentList({ currentUserInfo, postId }) {

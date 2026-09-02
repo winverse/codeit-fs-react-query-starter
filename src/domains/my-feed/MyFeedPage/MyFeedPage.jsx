@@ -1,6 +1,6 @@
 'use client';
 
-import Container from '@/components/Container';
+import { Container } from '@/components/Container';
 import * as styles from './MyFeedPage.css.js';
 
 /*

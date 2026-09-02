@@ -1,1 +1,1 @@
-export { default } from './PostUploader';
+export { default as PostUploader } from './PostUploader';

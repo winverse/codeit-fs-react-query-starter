@@ -1,6 +1,6 @@
 'use client';
 
-import ProfilePhoto from '@/components/ProfilePhoto';
+import { ProfilePhoto } from '@/components/ProfilePhoto';
 import * as styles from './UserInfo.css.js';
 
 function UserInfo({ name, photo }) {

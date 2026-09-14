@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const TOAST_AUTO_CLOSE_MS = 2_000;
 
 /*
-TODO(1-05): AppProviders를 완성합니다.
+TODO(1-06): AppProviders를 완성합니다.
 - QueryClient 생성
 - QueryClientProvider로 감싸기
 - ReactQueryDevtools 추가

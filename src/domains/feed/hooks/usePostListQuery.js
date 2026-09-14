@@ -1,5 +1,5 @@
 /*
-TODO(2-07): 무한 목록 쿼리로 구현합니다.
+TODO(2-08): 무한 목록 쿼리로 구현합니다.
 - React Query 무한 쿼리 훅으로 변경
 - 결과 구조는 { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage }
 */

@@ -11,7 +11,7 @@ import * as styles from './UserMenu.css.js';
 const anonymousUserIcon = '/assets/person.png';
 
 /*
-TODO(2-11): UserMenu를 완성합니다.
+TODO(2-12): UserMenu를 완성합니다.
 - 사용자 정보 쿼리 연결
 - 로그인 여부에 맞는 사용자 정보 표시
 */

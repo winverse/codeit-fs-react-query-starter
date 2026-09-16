@@ -10,15 +10,15 @@
 
 - `src/providers/AppProviders.jsx`
 - `src/lib/queryKeys.js`
-- `src/domains/feed/PostForm/PostForm.jsx`
-- `src/domains/feed/hooks/usePostListQuery.js`
+- `src/features/feed/PostForm/PostForm.jsx`
+- `src/features/feed/hooks/usePostListQuery.js`
 - `src/components/UserMenu/UserMenu.jsx`
-- `src/domains/my-feed/MyFeedPage/MyFeedPage.jsx`
+- `src/features/my-feed/MyFeedPage/MyFeedPage.jsx`
 - `src/components/QueryBoundary/QueryBoundary.jsx`
-- `src/domains/feed/CommentList/CommentList.jsx`
-- `src/domains/feed/PostUploader/PostUploader.jsx`
-- `src/domains/feed/hooks/useLikeMutation.js`
-- `src/domains/feed/Post/Post.jsx`
+- `src/features/feed/CommentList/CommentList.jsx`
+- `src/features/feed/PostUploader/PostUploader.jsx`
+- `src/features/feed/hooks/useLikeMutation.js`
+- `src/features/feed/Post/Post.jsx`
 
 ## 시작하기
 

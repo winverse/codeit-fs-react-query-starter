@@ -1,7 +1,7 @@
 "use client";
 
-import { Comment } from "@/domains/feed/Comment";
-import { CommentForm } from "@/domains/feed/CommentForm";
+import { Comment } from "@/features/feed/Comment";
+import { CommentForm } from "@/features/feed/CommentForm";
 import * as styles from "./CommentList.css.js";
 
 /*

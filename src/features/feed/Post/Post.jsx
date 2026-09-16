@@ -8,9 +8,9 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { Card } from "@/components/Card";
 import { QueryBoundary } from "@/components/QueryBoundary";
 import { Loading } from "@/components/Loading";
-import { ContentInfo } from "@/domains/feed/ContentInfo";
+import { ContentInfo } from "@/features/feed/ContentInfo";
 import { Button } from "@/components/Button";
-import { CommentList } from "@/domains/feed/CommentList";
+import { CommentList } from "@/features/feed/CommentList";
 import { queryKeys } from "@/lib/queryKeys";
 import {
   getCommentCountByPostId,

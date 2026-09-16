@@ -5,9 +5,9 @@ TODO(2-03): 쿼리 키 팩토리를 완성합니다.
 
 export const queryKeys = {
   posts: {
-    all: () => ['posts'],
+    all: () => ["posts"],
   },
   user: {
-    info: (username) => ['user', username],
+    info: (username) => ["user", username],
   },
 };

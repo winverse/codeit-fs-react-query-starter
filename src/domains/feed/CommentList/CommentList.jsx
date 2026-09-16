@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Comment } from '@/domains/feed/Comment';
-import { CommentForm } from '@/domains/feed/CommentForm';
-import * as styles from './CommentList.css.js';
+import { Comment } from "@/domains/feed/Comment";
+import { CommentForm } from "@/domains/feed/CommentForm";
+import * as styles from "./CommentList.css.js";
 
 /*
 TODO(2-20): 댓글 목록 쿼리와 페이지네이션을 구현합니다.

@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useCallback, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { ProfilePhoto } from '@/components/ProfilePhoto';
-import useClickOutside from '@/hooks/useClickOutside';
-import { USERNAMES } from '@/lib/constants';
-import { useLoginContext } from '@/contexts/LoginContext';
-import * as styles from './UserMenu.css.js';
+import { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
+import { ProfilePhoto } from "@/components/ProfilePhoto";
+import useClickOutside from "@/hooks/useClickOutside";
+import { USERNAMES } from "@/lib/constants";
+import { useLoginContext } from "@/contexts/LoginContext";
+import * as styles from "./UserMenu.css.js";
 
-const anonymousUserIcon = '/assets/person.png';
+const anonymousUserIcon = "/assets/person.png";
 
 /*
 TODO(2-12): UserMenu를 완성합니다.
@@ -38,12 +38,12 @@ function UserMenu() {
 
   const handleLoginClick = (username) => {
     setCurrentUsername(username);
-    router.push('/');
+    router.push("/");
   };
 
   const handleLogoutClick = () => {
     setCurrentUsername(undefined);
-    router.push('/');
+    router.push("/");
   };
 
   return (
@@ -52,9 +52,9 @@ function UserMenu() {
         {/* 로그인 여부에 따라 Suspense 분기 UI로 변경합니다 */}
         <ProfilePhoto
           photo={anonymousUserIcon}
-          name={currentUsername || '로그인'}
+          name={currentUsername || "로그인"}
         />
-        <div className={styles.userName}>{currentUsername || '로그인'}</div>
+        <div className={styles.userName}>{currentUsername || "로그인"}</div>
       </button>
       {isMenuOpen && (
         <ul className={styles.popup}>

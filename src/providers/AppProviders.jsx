@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { ToastContainer } from 'react-toastify';
-import { LoginProvider } from '@/contexts/LoginContext';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import { LoginProvider } from "@/contexts/LoginContext";
+import "react-toastify/dist/ReactToastify.css";
 
 const TOAST_AUTO_CLOSE_MS = 2_000;
 

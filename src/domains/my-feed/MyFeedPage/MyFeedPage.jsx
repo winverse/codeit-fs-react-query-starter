@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Container } from '@/components/Container';
-import * as styles from './MyFeedPage.css.js';
+import { Container } from "@/components/Container";
+import * as styles from "./MyFeedPage.css.js";
 
 /*
 TODO(2-14): 로그인 분기, 업로드 UI, 내 피드 목록을 연결합니다.

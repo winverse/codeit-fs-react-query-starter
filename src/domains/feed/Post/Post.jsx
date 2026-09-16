@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import clsx from 'clsx';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { Card } from '@/components/Card';
-import { QueryBoundary } from '@/components/QueryBoundary';
-import { Loading } from '@/components/Loading';
-import { ContentInfo } from '@/domains/feed/ContentInfo';
-import { Button } from '@/components/Button';
-import { CommentList } from '@/domains/feed/CommentList';
-import { queryKeys } from '@/lib/queryKeys';
+import { useState } from "react";
+import clsx from "clsx";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { Card } from "@/components/Card";
+import { QueryBoundary } from "@/components/QueryBoundary";
+import { Loading } from "@/components/Loading";
+import { ContentInfo } from "@/domains/feed/ContentInfo";
+import { Button } from "@/components/Button";
+import { CommentList } from "@/domains/feed/CommentList";
+import { queryKeys } from "@/lib/queryKeys";
 import {
   getCommentCountByPostId,
   getUserInfo,
   getLikeStatusByUsername,
   getLikeCountByPostId,
-} from '@/lib/api';
-import { useLoginContext } from '@/contexts/LoginContext';
-import * as styles from './Post.css.js';
+} from "@/lib/api";
+import { useLoginContext } from "@/contexts/LoginContext";
+import * as styles from "./Post.css.js";
 
-const yellowHeartImage = '/assets/yellow-heart.png';
-const greyHeartImage = '/assets/grey-heart.png';
+const yellowHeartImage = "/assets/yellow-heart.png";
+const greyHeartImage = "/assets/grey-heart.png";
 
 function Post({ post }) {
   const { currentUsername } = useLoginContext();
@@ -80,7 +80,7 @@ function PostContent({
 
   const handleCommentButtonClick = () => {
     if (!currentUsername) {
-      router.push('/not-logged-in');
+      router.push("/not-logged-in");
       return;
     }
     setShowCommentList(
@@ -125,7 +125,7 @@ function PostContent({
             <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
           </QueryBoundary>
         ) : (
-          ''
+          ""
         )}
       </div>
     </Card>

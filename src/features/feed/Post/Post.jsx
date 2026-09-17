@@ -4,10 +4,10 @@ import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Card } from "@/components/Card";
-import { QueryBoundary } from "@/components/QueryBoundary";
 import { Loading } from "@/components/Loading";
+import { Warn } from "@/components/Warn";
 import { ContentInfo } from "@/features/feed/ContentInfo";
 import { Button } from "@/components/Button";
 import { CommentList } from "@/features/feed/CommentList";
@@ -35,15 +35,31 @@ function Post({ post }) {
 }
 
 function PostWithUser({ post, currentUsername }) {
-  const { data: currentUserInfo } = useSuspenseQuery({
+  const {
+    data: currentUserInfo,
+    isPending: isUserInfoPending,
+    isError: isUserInfoError,
+  } = useQuery({
     queryKey: queryKeys.user.info(currentUsername),
     queryFn: () => getUserInfo(currentUsername),
   });
 
-  const { data: isPostLikedByCurrentUser } = useSuspenseQuery({
+  const {
+    data: isPostLikedByCurrentUser,
+    isPending: isLikeStatusPending,
+    isError: isLikeStatusError,
+  } = useQuery({
     queryKey: queryKeys.posts.likeStatus(post.id, currentUsername),
     queryFn: () => getLikeStatusByUsername(post.id, currentUsername),
   });
+
+  if (isUserInfoPending || isLikeStatusPending) {
+    return <Loading description="포스트를 불러오는 중입니다..." />;
+  }
+
+  if (isUserInfoError || isLikeStatusError) {
+    return <Warn description="포스트를 불러오지 못했습니다." />;
+  }
 
   return (
     <PostContent
@@ -68,12 +84,20 @@ function PostContent({
   const router = useRouter();
   const [showCommentList, setShowCommentList] = useState(false);
 
-  const { data: commentCount } = useSuspenseQuery({
+  const {
+    data: commentCount,
+    isPending: isCommentCountPending,
+    isError: isCommentCountError,
+  } = useQuery({
     queryKey: queryKeys.posts.commentCount(post.id),
     queryFn: () => getCommentCountByPostId(post.id),
   });
 
-  const { data: likeCount } = useSuspenseQuery({
+  const {
+    data: likeCount,
+    isPending: isLikeCountPending,
+    isError: isLikeCountError,
+  } = useQuery({
     queryKey: queryKeys.posts.likeCount(post.id),
     queryFn: () => getLikeCountByPostId(post.id),
   });
@@ -85,6 +109,14 @@ function PostContent({
     }
     setShowCommentList((isShown) => !isShown);
   };
+
+  if (isCommentCountPending || isLikeCountPending) {
+    return <Loading description="포스트를 불러오는 중입니다..." />;
+  }
+
+  if (isCommentCountError || isLikeCountError) {
+    return <Warn description="포스트를 불러오지 못했습니다." />;
+  }
 
   return (
     <Card className={styles.post}>
@@ -115,13 +147,7 @@ function PostContent({
           </Button>
         </div>
         {showCommentList && (
-          <QueryBoundary
-            pendingFallback={
-              <Loading description="댓글을 불러오는 중입니다..." />
-            }
-          >
-            <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
-          </QueryBoundary>
+          <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
         )}
       </div>
     </Card>

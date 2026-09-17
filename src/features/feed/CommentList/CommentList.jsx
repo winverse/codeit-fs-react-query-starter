@@ -5,7 +5,7 @@ import { CommentForm } from "@/features/feed/CommentForm";
 import * as styles from "./CommentList.css.js";
 
 /*
-TODO(2-23): 댓글 목록 쿼리와 페이지네이션을 구현합니다.
+TODO(2-21): 댓글 목록 쿼리와 페이지네이션을 구현합니다.
 - 댓글 목록을 페이지별로 조회하고 다음 페이지 이동 준비
 
 TODO(3-01): 댓글 추가 뮤테이션을 연결합니다.

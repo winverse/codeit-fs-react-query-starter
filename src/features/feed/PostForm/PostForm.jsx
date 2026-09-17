@@ -5,7 +5,7 @@ import { useLoginContext } from "@/contexts/LoginContext";
 import * as styles from "./PostForm.css.js";
 
 /*
-TODO(2-15): PostForm을 완성합니다.
+TODO(2-13): PostForm을 완성합니다.
 - 현재 사용자 정보 쿼리로 가져오기
 - onSubmit에 전달할 newPost 생성
 */

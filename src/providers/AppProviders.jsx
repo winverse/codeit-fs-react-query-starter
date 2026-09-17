@@ -5,13 +5,6 @@ import { LoginProvider } from "@/contexts/LoginContext";
 
 const TOAST_AUTO_CLOSE_MS = 2_000;
 
-/*
-TODO(1-05): AppProviders를 완성합니다.
-- QueryClient 생성
-- QueryClientProvider로 감싸기
-- ReactQueryDevtools 추가
-*/
-
 function AppProviders({ children }) {
   return (
     <LoginProvider>

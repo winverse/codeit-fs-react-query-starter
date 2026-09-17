@@ -10,12 +10,6 @@ import * as styles from "./UserMenu.css.js";
 
 const ANONYMOUS_USER_ICON = "/assets/person.png";
 
-/*
-TODO(2-05): UserMenu를 완성합니다.
-- 사용자 정보 쿼리 연결
-- 로그인 여부에 맞는 사용자 정보 표시
-*/
-
 function UserMenu() {
   const router = useRouter();
   const { currentUsername, setCurrentUsername } = useLoginContext();

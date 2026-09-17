@@ -21,8 +21,8 @@ import {
 import { useLoginContext } from "@/contexts/LoginContext";
 import * as styles from "./Post.css.js";
 
-const yellowHeartImage = "/assets/yellow-heart.png";
-const greyHeartImage = "/assets/grey-heart.png";
+const YELLOW_HEART_IMAGE = "/assets/yellow-heart.png";
+const GREY_HEART_IMAGE = "/assets/grey-heart.png";
 
 function Post({ post }) {
   const { currentUsername } = useLoginContext();
@@ -83,9 +83,7 @@ function PostContent({
       router.push("/not-logged-in");
       return;
     }
-    setShowCommentList(
-      (previousIsCommentListOpen) => !previousIsCommentListOpen,
-    );
+    setShowCommentList((isShown) => !isShown);
   };
 
   return (
@@ -100,23 +98,23 @@ function PostContent({
           >
             <Image
               className={styles.like}
-              src={isPostLikedByCurrentUser ? yellowHeartImage : greyHeartImage}
+              src={
+                isPostLikedByCurrentUser ? YELLOW_HEART_IMAGE : GREY_HEART_IMAGE
+              }
               alt="좋아요"
               width={12}
               height={12}
             />
-            {`좋아요 ${likeCount ?? 0}개`}
+            {`좋아요 ${likeCount}개`}
           </Button>
           <Button
             className={styles.engagementButton}
-            onClick={() => {
-              handleCommentButtonClick(post.id);
-            }}
+            onClick={handleCommentButtonClick}
           >
-            {`댓글 ${commentCount ?? 0}개`}
+            {`댓글 ${commentCount}개`}
           </Button>
         </div>
-        {showCommentList ? (
+        {showCommentList && (
           <QueryBoundary
             pendingFallback={
               <Loading description="댓글을 불러오는 중입니다..." />
@@ -124,8 +122,6 @@ function PostContent({
           >
             <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
           </QueryBoundary>
-        ) : (
-          ""
         )}
       </div>
     </Card>

@@ -8,7 +8,7 @@ import { USERNAMES } from "@/lib/constants";
 import { useLoginContext } from "@/contexts/LoginContext";
 import * as styles from "./UserMenu.css.js";
 
-const anonymousUserIcon = "/assets/person.png";
+const ANONYMOUS_USER_ICON = "/assets/person.png";
 
 /*
 TODO(2-05): UserMenu를 완성합니다.
@@ -31,9 +31,9 @@ function UserMenu() {
     onOutsideClick: handleCloseMenu,
   });
 
-  const handleButtonClick = (event) => {
-    event.stopPropagation();
-    setIsMenuOpen((nextIsOpen) => !nextIsOpen);
+  const handleButtonClick = (e) => {
+    e.stopPropagation();
+    setIsMenuOpen((isOpen) => !isOpen);
   };
 
   const handleLoginClick = (username) => {
@@ -51,7 +51,7 @@ function UserMenu() {
       <button className={styles.iconButton} onClick={handleButtonClick}>
         {/* 로그인 여부에 맞는 사용자 정보를 표시하도록 변경합니다 */}
         <ProfilePhoto
-          photo={anonymousUserIcon}
+          photo={ANONYMOUS_USER_ICON}
           name={currentUsername || "로그인"}
         />
         <div className={styles.userName}>{currentUsername || "로그인"}</div>
@@ -59,12 +59,7 @@ function UserMenu() {
       {isMenuOpen && (
         <ul className={styles.popup}>
           {currentUsername ? (
-            <li
-              className={styles.popupItem}
-              onClick={() => {
-                handleLogoutClick();
-              }}
-            >
+            <li className={styles.popupItem} onClick={handleLogoutClick}>
               로그아웃
             </li>
           ) : (

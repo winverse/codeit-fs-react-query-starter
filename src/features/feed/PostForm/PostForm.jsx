@@ -1,7 +1,7 @@
 "use client";
 
-import { useLoginContext } from "@/contexts/LoginContext.jsx";
 import { TextInputForm } from "@/features/feed/TextInputForm";
+import { useLoginContext } from "@/contexts/LoginContext";
 import * as styles from "./PostForm.css.js";
 
 /*

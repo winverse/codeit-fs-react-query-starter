@@ -19,7 +19,9 @@ function PostUploader() {
     void newPost;
   };
 
-  if (!currentUsername) return null;
+  if (!currentUsername) {
+    return null;
+  }
 
   return <PostForm onSubmit={handleUploadPost} buttonDisabled={false} />;
 }

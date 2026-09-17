@@ -26,6 +26,8 @@
 git clone https://github.com/winverse/codeit-fs-react-query-starter.git
 cd codeit-fs-react-query-starter
 pnpm install
+pnpm add @tanstack/react-query
+pnpm add -D @tanstack/react-query-devtools
 pnpm dev
 ```
 

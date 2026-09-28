@@ -10,6 +10,16 @@ import * as styles from "./UserMenu.css.js";
 
 const ANONYMOUS_USER_ICON = "/assets/person.png";
 
+// 버튼 안에 프로필 사진과 이름을 표시합니다.
+function UserMenuButtonContent({ photo = ANONYMOUS_USER_ICON, name }) {
+  return (
+    <>
+      <ProfilePhoto photo={photo} name={name} />
+      <div className={styles.userName}>{name}</div>
+    </>
+  );
+}
+
 function UserMenu() {
   const router = useRouter();
   const { currentUsername, setCurrentUsername } = useLoginContext();
@@ -43,11 +53,7 @@ function UserMenu() {
   return (
     <div className={styles.userMenu}>
       <button className={styles.iconButton} onClick={handleButtonClick}>
-        <ProfilePhoto
-          photo={ANONYMOUS_USER_ICON}
-          name={currentUsername || "로그인"}
-        />
-        <div className={styles.userName}>{currentUsername || "로그인"}</div>
+        <UserMenuButtonContent name={currentUsername || "로그인"} />
       </button>
       {isMenuOpen && (
         <ul className={styles.popup}>

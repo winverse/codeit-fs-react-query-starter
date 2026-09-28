@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ProfilePhoto } from "@/components/ProfilePhoto";
 import useClickOutside from "@/hooks/useClickOutside";
-import { USERNAMES } from "@/lib/constants";
+import { USERNAMES } from "@/constants/user";
 import { useLoginContext } from "@/contexts/LoginContext";
 import * as styles from "./UserMenu.css.js";
 

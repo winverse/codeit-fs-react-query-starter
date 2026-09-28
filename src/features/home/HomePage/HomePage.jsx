@@ -1,6 +1,6 @@
 import { Container } from "@/components/Container";
 import { PostList } from "@/features/feed/PostList";
-import { FEED_VARIANT } from "@/lib/constants";
+import { FEED_VARIANT } from "@/constants/feed";
 import * as styles from "./HomePage.css.js";
 
 function HomePage() {

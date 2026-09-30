@@ -1,9 +1,8 @@
 "use client";
 
 import { ToastContainer } from "react-toastify";
+import { TOAST_AUTO_CLOSE_MS } from "@/constants/time";
 import { LoginProvider } from "@/contexts/LoginContext";
-
-const TOAST_AUTO_CLOSE_MS = 2_000;
 
 function AppProviders({ children }) {
   return (

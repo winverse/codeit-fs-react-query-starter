@@ -14,6 +14,7 @@
 - `src/features/feed/hooks/usePostListQuery.js`
 - `src/features/feed/PostList/PostList.jsx`
 - `src/components/UserMenu/UserMenu.jsx`
+- `src/app/page.js`
 - `src/features/home/HomePage/HomePage.jsx`
 - `src/features/my-feed/MyFeedPage/MyFeedPage.jsx`
 - `src/components/QueryBoundary/QueryBoundary.jsx`
